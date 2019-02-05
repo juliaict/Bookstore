@@ -12,6 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class BookController {
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String getNewBookForm(Model model) {
-				return "book";
+				return "index";//linkki index.html
 	}
 }
