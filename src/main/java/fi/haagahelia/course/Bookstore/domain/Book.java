@@ -32,7 +32,7 @@ public class Book  {
 		this.year = year;
 		this.isbn = isbn;
 		this.price = price;
-		this.category=category;
+		this.category= category;
 	}
 
 	public Book () {}

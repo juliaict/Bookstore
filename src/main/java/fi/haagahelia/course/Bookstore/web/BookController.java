@@ -27,6 +27,10 @@ public class BookController {
 	@Autowired
 	private CategoryRepository crepository;
 	
+	@RequestMapping(value="/login")
+    public String login() {	
+        return "login";//login 6.1
+    }
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String getNewBookForm(Model model) {
@@ -58,13 +62,13 @@ public class BookController {
 	
 	@RequestMapping(value="/books", method = RequestMethod.GET)
     public @ResponseBody List<Book> bookListRest() {	
-        return (List<Book>) repository.findAll(); //Rest kaikki kirjat
+        return (List<Book>) repository.findAll(); //Restful kaikki kirjat
     }    
 	
  
     @RequestMapping(value="/book/{id}", method = RequestMethod.GET)
     public @ResponseBody Optional<Book> findBookRest(@PathVariable("id") Long bookId) {	
-    	return repository.findById(bookId); // Rest löytää kirja id-tunnuksella
+    	return repository.findById(bookId); // Restful löytää kirja id-tunnuksella
     }    
 
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)

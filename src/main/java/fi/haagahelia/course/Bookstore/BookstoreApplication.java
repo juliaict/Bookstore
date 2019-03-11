@@ -30,7 +30,7 @@ public class BookstoreApplication {
 			
 			repository.save(new Book("Tilinpäätösanalyysi", "Juha-Pekka Kallunk", 2014, "978-952-1-42195-2", 58.70, crepository.findByName("Kirjanpito").get(0)));
 			repository.save(new Book("Yritystutkimuksen tilinpäätösana", "Yritystutkimus ry", 2017, "978-952-4-95427-3", 27, crepository.findByName("Tilintarkastus").get(0)));
-			repository.save(new Book("Yritystutkimuksen tilinpäätösana", "Yritystutkimus ry", 2017, "978-952-4-95427-3", 27, crepository.findByName("Verotus").get(0)));
+			repository.save(new Book("Yritystutkimuksen tilinpäätösana", "Yritystutkimus ry", 2017, "978-952-4-95427-3", 27, null));
 			
 			log.info("fetch all books");
 			for (Book book : repository.findAll()) {

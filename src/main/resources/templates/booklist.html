@@ -7,7 +7,14 @@
 
 </head>
 <body>
-	<h1>Books</h1>
+	<h1 class="jumbotron text-center text-primary">Books</h1>
+	
+	<div class="text-center">
+			<h2 class="text-info" th:inline="text"><strong>Tervetuloa [[${#httpServletRequest.remoteUser}]]</strong></h2>
+	</div>
+	
+	  <br />
+	
     <table class="table table-striped">
 		<tr>
 		    <th>Nimi</th>
@@ -16,8 +23,8 @@
 		    <th>ISBN</th>
 		    <th>Hinta</th>
 		    <th>Aihe</th>
-		    <th>Poista</th>
-		    <th>Muokata</th>
+		    <th sec:authorize="hasRole('ADMIN')">Poista</th>
+		    <th sec:authorize="hasRole('ADMIN')">Muokata</th>
 		</tr>  
     	<tr th:each = "book : ${books}">
     		<td th:text="${book.title}"></td>
@@ -25,12 +32,22 @@
     		<td th:text="${book.year}"></td>
     		<td th:text="${book.isbn}"></td>
     		<td th:text="${book.price}"></td>
-    		<td th:text="${book.category.name}"></td>			
-			<td><a class="btn btn-danger" th:href="@{/delete/{id}(id=${book.id})}">Poista</a></td>   
- 			<td><a th:href="@{/edit/{id}(id=${book.id})}">Muokata</a></td>  
+    		<td>
+    		<span th:if="${book.category!=null}" th:text="${book.category.name}"></span>
+    		<span th:unless="${book.category!=null}" ></span>
+    		</td>			
+			<td sec:authorize="hasRole('ADMIN')"><a th:href="@{/delete/{id}(id=${book.id})}">Poista</a></td>   
+ 			<td sec:authorize="hasRole('ADMIN')"><a th:href="@{/edit/{id}(id=${book.id})}">Muokata</a></td>  
     	</tr>
      </table>
      <br />
-	<p> <a href="/add" class="btn btn-success">Lisää kirjan</a></p> 	
+	 
+	<p class="text-center" sec:authorize="hasRole('ADMIN')"><button class="btn btn-success" OnClick="location.href='/add'">Lisää kirja</button>
+	<div class="text-center" style="padding:20px 0" >
+			<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Kirjaudu ulos" class="btn btn-sm btn-danger"/>
+			</form>
+	</div>
+
 </body>
 </html>
