@@ -2,13 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Edit book</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ 	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 
 </head>
 <body>
-	<h1>Muokata kirjan tiedot</h1>
+	<h1 class="jumbotron text-center text-primary">Muokata kirjan tiedot</h1>
 	
-	<div class="container">
+	<div class="container text-center">
 		<form th:action="@{/save}" action="#" method="post">
 		  	<input type="hidden" th:field="*{book.id}" />
 		  	<div style="clear: both; display: block; height: 10px;"></div>
@@ -26,7 +27,7 @@
 			<div style="clear: both; display: block; height: 10px;"></div>
 			<label for="price">Hinta</label>
 			<input type="text" th:field="*{book.price}" />
-			<div style="clear: both; display: block; height: 10px;"></div>
+			<div class="btn btn-success" style="clear: both; display: block; height: 10px;"></div>
 			<input id="button" type="submit" value="Tallenna" ></input>
 		</form>
 	</div>
