@@ -23,11 +23,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
         .authorizeRequests().antMatchers("/css/**").permitAll() // Ottaa css käyttöön, kun on kirjautunut ulos
         .and()
-        .authorizeRequests().antMatchers("/delete/*").hasRole("ADMIN")
+        .authorizeRequests().antMatchers("/delete/*").hasAuthority("ADMIN")
         .and()
-        .authorizeRequests().antMatchers("/edit/*").hasRole("ADMIN")
+        .authorizeRequests().antMatchers("/edit/*").hasAuthority("ADMIN")
         .and()
-        .authorizeRequests().antMatchers("/add").hasRole("ADMIN")
+        .authorizeRequests().antMatchers("/add").hasAuthority("ADMIN")
 
         .and()
         .authorizeRequests().anyRequest().authenticated()
