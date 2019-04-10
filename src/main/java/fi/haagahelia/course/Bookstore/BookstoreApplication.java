@@ -36,8 +36,8 @@ public class BookstoreApplication {
 			
 			//Luo käyttäjiä: admin/adminadmin user/useruser
 			
-			User user1 = new User("user", "$2a$10$Hkalfpe8PygrqR3WacL.B.plDXQkHoeqgAVjnZ59p1B3pzYEehoES", "user@bookstore.com", "USER");
-			User user2 = new User("admin", "$2a$10$dg.BpwRAc8o4viUPDopmbuzYswkWTJhVGtiOt6HNKM8omanynQEdq", "ADMIN");
+			User user1 = new User("user", "$2a$04$IPcYqfBaPwT/06BYU.6tYurWUIybner3UlRxpybGrnE.a0Jbw52H2", "user@bookstore.com", "USER");
+			User user2 = new User("admin", "$2a$04$YlBudyZq.bR5XGaLTuz4AOgcb7BkRZZDE5f1TQJCTETEbkxRRygRe", "ADMIN");
 			urepository.save(user1);
 			urepository.save(user2);
 										
